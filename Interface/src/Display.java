@@ -7,6 +7,7 @@ public class Display {
 	void scan() {
 		object.onScan("Interface");
 		
+		
 	}
 	
 }

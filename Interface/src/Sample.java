@@ -7,7 +7,6 @@ public class Sample implements Hello{
 	Sample(){
 		Display ds=new Display(this);
 		
-		
 		ds.scan();
 	}
 	public static void main(String[] args) {
