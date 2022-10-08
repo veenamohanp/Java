@@ -6,6 +6,7 @@ public class TextScanner {
 	}
 	void scan() {
 		object.onText("Scanned Text");
+		
 	}
 	
 	
