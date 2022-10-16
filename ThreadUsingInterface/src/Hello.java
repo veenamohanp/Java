@@ -4,9 +4,11 @@ public class Hello {
 		Sample s= new Sample();
 		Thread th =  new Thread(s);
 		th.start();
-		Thread th1 =  new Thread(s);
+		Sample s1= new Sample();
+		Thread th1 =  new Thread(s1);
 		th1.start();
-		Thread th2 =  new Thread(s);
+		Sample s2= new Sample();
+		Thread th2 =  new Thread(s2);
 		th2.start();
 				
 	}
