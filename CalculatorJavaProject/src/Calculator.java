@@ -259,7 +259,7 @@ public class Calculator implements ActionListener{
 			
 		}else if (e.getSource()==subButton) {
 			try {
-					if(flag==0) {
+					if(flag==0 && firstNumber==0) {
 						firstNumber=Float.valueOf(display.getText());
 						flag=1;
 						}
