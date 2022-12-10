@@ -184,79 +184,105 @@ public class Calculator implements ActionListener{
 			
 		}
 		else if (e.getSource()==equalButton) {
-			if(isAddClicked) {
-				secondNumber=Float.valueOf(display.getText());
-				secondNumber=secondNumber+firstNumber;
-				result=Float.toString(secondNumber);
-				display.setText(result);
-				isAddClicked=false;
+			try {
+				
+			
+				if(isAddClicked) {
+					secondNumber=Float.valueOf(display.getText());
+					secondNumber=secondNumber+firstNumber;
+					result=Float.toString(secondNumber);
+					display.setText(result);
+					isAddClicked=false;
+					}
+				else if(isSubClicked) {
+					secondNumber=Float.valueOf(display.getText());
+					secondNumber=firstNumber-secondNumber;
+					result=Float.toString(secondNumber);
+					display.setText(result);
+					isSubClicked=false;
 				}
-			else if(isSubClicked) {
-				secondNumber=Float.valueOf(display.getText());
-				secondNumber=firstNumber-secondNumber;
-				result=Float.toString(secondNumber);
-				display.setText(result);
-				isSubClicked=false;
+				else if(isMulClicked){
+					secondNumber=Float.valueOf(display.getText());
+					secondNumber=firstNumber*secondNumber;
+					result=Float.toString(secondNumber);
+					display.setText(result);
+					isMulClicked=false;
+				}
+				else if (isDivClicked) {
+					secondNumber=Float.valueOf(display.getText());
+					secondNumber=firstNumber/secondNumber;
+					result=Float.toString(secondNumber);
+					display.setText(result);
+					isDivClicked=false;
+				}
 			}
-			else if(isMulClicked){
-				secondNumber=Float.valueOf(display.getText());
-				secondNumber=firstNumber*secondNumber;
-				result=Float.toString(secondNumber);
-				display.setText(result);
-				isMulClicked=false;
-			}
-			else if (isDivClicked) {
-				secondNumber=Float.valueOf(display.getText());
-				secondNumber=firstNumber/secondNumber;
-				result=Float.toString(secondNumber);
-				display.setText(result);
-				isDivClicked=false;
+			catch (NumberFormatException emptyString){
+				firstNumber=0;
 			}
 		}else if (e.getSource()==divButton) {
-			
-			if(flag==0) {
-				firstNumber=Float.valueOf(display.getText());
-				flag=1;
+			try {
+				
+				if(flag==0) {
+					firstNumber=Float.valueOf(display.getText());
+					flag=1;
+					}
+				else {
+					firstNumber=firstNumber/Float.valueOf(display.getText());
 				}
-			else {
-				firstNumber=firstNumber/Float.valueOf(display.getText());
 			}
-			
+		
+		catch (NumberFormatException emptyString){
+			firstNumber=0;
+		}
+		
 			display.setText("");
 			isDivClicked=true;
 			
 		}else if (e.getSource()==mulButton) {
-			if(flag==0) {
-				firstNumber=Float.valueOf(display.getText());
-				flag=1;
-				}
-			else {
-				firstNumber=firstNumber*Float.valueOf(display.getText());
-			}
+			try {
 			
+					if(flag==0) {
+						firstNumber=Float.valueOf(display.getText());
+						flag=1;
+						}
+					else {
+						firstNumber=firstNumber*Float.valueOf(display.getText());
+					}
+				}
+		
+		catch (NumberFormatException emptyString){
+			firstNumber=0;
+		}
+		
 			display.setText("");
 			isMulClicked=true;
 			
 		}else if (e.getSource()==subButton) {
-			if(flag==0) {
-			firstNumber=Float.valueOf(display.getText());
-			flag=1;
+			try {
+					if(flag==0) {
+						firstNumber=Float.valueOf(display.getText());
+						flag=1;
+						}
+					else {
+						firstNumber=firstNumber-Float.valueOf(display.getText());
+					}
 			}
-			else {
-				firstNumber=firstNumber-Float.valueOf(display.getText());
+			catch (NumberFormatException emptyString){
+				firstNumber=0;
 			}
+			
 			
 			display.setText("");
 			isSubClicked=true;
 		}else if (e.getSource()==addButton) {
-//			try {
-//				if (display.getText().equals(""));
-//			}
-//			catch (Exception emptyString){
-//				firstNumber=0;
-//			}
+			try {
+			
+				firstNumber=firstNumber+Float.valueOf(display.getText());
+			}
+			catch (NumberFormatException emptyString){
+				firstNumber=0;
+			}
 			isAddClicked=true;
-			firstNumber=firstNumber+Float.valueOf(display.getText());
 			display.setText("");
 			
 			
